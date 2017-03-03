@@ -1,0 +1,16 @@
+.nav {
+  background: $c-color;
+  margin: 0;
+
+  &__group-left {
+    margin: 0;
+    margin-left: 14rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+  }
+}
+
+.logo {
+  font-style: italic;
+  color: white;
+}
