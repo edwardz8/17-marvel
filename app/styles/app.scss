@@ -10,26 +10,41 @@ $c-color: #002e42;
 @import 'nav';
 @import 'grid';
 
+.sidebar__pic {
+  width: 15rem;
+  margin-top: 1rem;
+  border-radius: .5rem;
+}
+
+.sidebar__name {
+  font-size: 1.5rem;
+}
+
 .creators {
   &__heading {
-        border-bottom: .1rem $c-color solid;
         padding-left: .5rem;
         padding-bottom: -0.2rem;
         margin: 0;
   }
-  &__list {}
 }
 
 .characters {
-  padding-left: 5rem;
   &__heading {border-bottom: .1rem $c-color solid;}
 }
 
 .grid {
-      display: flex;
+    display: flex;
 
   &-item {
-    flex-direction: row;
-    margin: 1rem auto;
+    margin: 2rem;
   }
+}
+
+.sidebar {
+  flex-basis: calc(25%);
+}
+
+.main {
+  flex-basis: calc(75%);
+  flex-grow: 1;
 }
