@@ -10,27 +10,6 @@ $c-color: #002e42;
 @import 'nav';
 @import 'grid';
 
-.app {
-  display: flex;
-}
-
-.sidebar {
-
-&__pic {
-  height: 18rem;
-  border-radius: .5rem;
-}
-&__name {
-  font-size: 1.5rem;
-  font-weight: normal;
-  padding-left: .5rem;
-  color: $c-color;
-}
-&__date {
-  padding-left: .5rem;
-}
-}
-
 .creators {
   &__heading {
         border-bottom: .1rem $c-color solid;
@@ -44,4 +23,13 @@ $c-color: #002e42;
 .characters {
   padding-left: 5rem;
   &__heading {border-bottom: .1rem $c-color solid;}
+}
+
+.grid {
+      display: flex;
+
+  &-item {
+    flex-direction: row;
+    margin: 1rem auto;
+  }
 }
