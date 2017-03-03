@@ -33,11 +33,15 @@ $c-color: #002e42;
 
 .creators {
   &__heading {
+        border-bottom: .1rem $c-color solid;
         padding-left: .5rem;
         padding-bottom: -0.2rem;
+        margin: 0;
   }
-  &__list {
-      border-top: .1rem $c-color solid;
-      margin: .5rem;
-  }
+  &__list {}
+}
+
+.characters {
+  padding-left: 5rem;
+  &__heading {border-bottom: .1rem $c-color solid;}
 }
