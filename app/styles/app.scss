@@ -48,3 +48,9 @@ $c-color: #002e42;
   flex-basis: calc(75%);
   flex-grow: 1;
 }
+
+.characters-row {
+  display: flex;
+  margin: 1rem;
+  justify-content: space-around;
+}
