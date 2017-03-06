@@ -1,11 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Marvel</title>
 
-  </head>
-  <body>
+<template lang="html">
+  <div class="">
 
-  </body>
-</html>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+    };
+  },
+
+  methods: {
+
+  },
+};
+</script>

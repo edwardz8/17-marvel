@@ -8,7 +8,6 @@ $c-color: #002e42;
 @import 'box-sizing';
 @import 'resets';
 @import 'nav';
-@import 'grid';
 
 .sidebar__pic {
   width: 15rem;
@@ -52,7 +51,11 @@ $c-color: #002e42;
 .characters-row {
   display: flex;
   margin: 1rem;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+.characters-data {
+  margin: .5rem;
 }
 
 .characters-data__pic {
