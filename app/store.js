@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import Revue from 'revue';
+import actions from './actions';
 
 import reducer from './reducer';
 
