@@ -22,7 +22,7 @@ export function clearModal(id) {
   return {type: 'MODAL@CLEAR', data: id};
 };
 
-export function seriesInfoSearch(name) {
+export function seriesInfoSearch(seriesInfo) {
   return (dispatch) => {
     fetch('http://marvel-is-broke.herokuapp.com/series?limit=1&titleStartsWith=TITLE&apikey=APIKEY')
     .then(r = r.json())
@@ -30,14 +30,14 @@ export function seriesInfoSearch(name) {
       dispatch({
         type: 'SERIES_INFO@LOAD_COMPLETE',
         data: {
-          description,
+          seriesInfo,
         },
       })
     })
   };
 }
 
-export function charactersFindForId(id) {
+export function charactersFindForId(characters) {
   return (dispatch) => {
     fetch('http://marvel-is-broke.herokuapp.com/series/ID/characters?apikey=APIKEY')
     .then(r = r.json())
@@ -45,14 +45,14 @@ export function charactersFindForId(id) {
       dispatch({
         type: 'CHARACTERS@FIND_ALL_COMPLETE',
         data: {
-          description,
+          characters,
         },
       })
     })
   };
 }
 
-export function comicsFindForId(id) {
+export function comicsFindForId(comics) {
   return (dispatch) => {
     fetch('http://marvel-is-broke.herokuapp.com/series/ID/comics?apikey=APIKEY')
     .then(r = r.json())
@@ -60,7 +60,7 @@ export function comicsFindForId(id) {
       dispatch({
         type: 'COMICS@FIND_ALL_COMPLETE',
         data: {
-          description,
+          comics,
         },
       })
     })

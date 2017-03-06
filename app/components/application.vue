@@ -1,3 +1,4 @@
+
 <template lang="html">
   <div class="app">
     <div class="section header">
@@ -97,11 +98,13 @@
 </template>
 
 <script>
+import Store from 'store.js';
+
 export default {
   data() {
     return {
-      todo: '',
-      todos: this.$select('')
+      type: 'SERIES_INFO@LOAD_COMPLETE',
+      data: this.$select('seriesInfo')
     };
   },
 
