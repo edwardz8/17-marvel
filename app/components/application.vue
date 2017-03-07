@@ -114,12 +114,12 @@ export default {
   },
 
   methods: {
-      addTodo() {
-        store.dispatch({type: 'SERIES_INFO@LOAD_COMPLETE', /*this.todo */})
+      loadSeries() {
+        store.dispatch({type: 'SERIES_INFO@LOAD_COMPLETE', /*this.search */})
         //or use the actionCreator
-        store.dispatch(todoActions.addTodo(this.todo))
-        const {addTodo} = store.actions
-        store.dispatch(addTodo(this.todo))
+        store.dispatch(todoActions.loadSeries(this.search))
+        const {loadSeries} = store.actions
+        store.dispatch(loadSeries(this.search))
       }
   },
 };

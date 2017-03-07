@@ -7,13 +7,13 @@ export function loadSeries(data) {
 export function findCharacters(data) {
   data.id = new Date();
 
-  return { type: 'CHARACTERS@FIND_ALL_COMPLETE', data };
+  return { type: 'CHARACTERS@FIND_ALL_COMPLETE', data: { name: [] } };
 }
 
-export function findComics(id) {
+export function findComics(data) {
   data.id = new Date();
 
-  return { type: 'COMICS@FIND_ALL_COMPLETE', data: id };
+  return { type: 'COMICS@FIND_ALL_COMPLETE', data };
 }
 
 export function setModal(id) {
@@ -32,7 +32,9 @@ export function seriesInfoSearch(seriesInfo) {
       dispatch({
         type: 'SERIES_INFO@LOAD_COMPLETE',
         data: {
-          sidebar,
+          seriesInfo,
+          //characters,
+          //comics
         },
       });
     });
@@ -47,7 +49,7 @@ export function charactersFindForId(characters) {
       dispatch({
         type: 'CHARACTERS@FIND_ALL_COMPLETE',
         data: {
-          id,
+          characters,
         },
       });
     });
@@ -62,7 +64,7 @@ export function comicsFindForId(comics) {
       dispatch({
         type: 'COMICS@FIND_ALL_COMPLETE',
         data: {
-          id,
+          comics,
         },
       });
     });
