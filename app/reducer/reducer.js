@@ -1,25 +1,11 @@
 import { combineReducers } from 'redux';
 
-export function combine(state = [0], action) {
+export function combine(state, action) {
   switch (action.type) {
-    case '':
-      return [...state, 0];
-    case '':
-      return state.map((curr, action) => {
-        if (state === action) {
-          return state;
-        }
-
-        return curr;
-      });
-    default:
-      return state;
+    case 'SERIES_INFO@FIND_COMPLETE':
+      return;
   }
 }
-
-export default combineReducers({
-
-});
 
 /*
 export default function reducer(state, action) {
