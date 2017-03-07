@@ -33,8 +33,6 @@ export function seriesInfoSearch(seriesInfo) {
         type: 'SERIES_INFO@LOAD_COMPLETE',
         data: {
           seriesInfo,
-          //characters,
-          //comics
         },
       });
     });
