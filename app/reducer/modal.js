@@ -1,4 +1,4 @@
-export function modal(state, action) {
+export default function modal(state, action) {
   switch (action.type) {
     case 'MODAL@SET':
       return;

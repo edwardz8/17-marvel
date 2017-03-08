@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import seriesData from './reducer/series-info.js';
-import characters from './reducer/character-data.js';
-import comics from './reducer/comic-data.js';
-import modal from './reducer/modal.js';
+import seriesData from './series-info';
+import characters from './character-data';
+import comics from './comic-data';
+import modal from './modal';
 
 export default combineReducers({
   seriesData,
