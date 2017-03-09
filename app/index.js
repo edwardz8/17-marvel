@@ -1,8 +1,8 @@
 import 'whatwg-fetch';
 
-// import Vue from 'vue';
+import Vue from 'vue';
 
-// import App from './components/application.vue';
+import App from './components/application.vue';
 
 const app = new Vue(App);
 

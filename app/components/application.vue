@@ -10,11 +10,10 @@
     </div>
 
       <div class="grid">
-        <div class="grid-item" v-if="series">
-          <img src="http://vignette4.wikia.nocookie.net/marveldatabase/images/f/ff/Mayham_(April_Parker).jpg/revision/latest?cb=20110320235541"
-          class="series__pic" alt="">
-          <p class="series__name">Spider-Girl (2010-2011){{series.name}}</p>
-          <p class="series__date">2010-2011{{series.date}}</p>
+        <div class="grid-item" v-if="seriesInfo">
+          <img :src="`${seriesInfo.thumbnail.path}.${seriesInfo.thumbnail.extension}`" alt="">
+          <p class="series__name">{{seriesInfo.title}}</p>
+          <p class="series__date">{{seriesInfo.startYear}} - {{seriesInfo.endYear}}</p>
 
 
           <div class="creators">
@@ -23,12 +22,7 @@
             <hr/>
           </div>
           <ul class="creators__list">
-            <li class="creators__list-one">Tom Brennan</li>
-            <li class="creators__list-two">Walter Payton</li>
-            <li class="creators__list-three">Clayton Kershaw</li>
-            <li class="creators__list-four">Barry Sanders</li>
-            <li class="creators__list-five">Jorge Kevic Djurdjevic</li>
-            <li class="creators__list-six">Paul Tobin</li>
+            <li v-for="item in seriesInfo.creators.items" class="creators__list-one">{{item}}</li>
           </ul>
         </div>
 
@@ -96,37 +90,31 @@
 
   </div>
 </div>
+</div>
 </template>
 
 <script>
-import Store from 'store.js';
+import store from '../store';
+import { seriesInfoSearch } from '../actions';
+// import CharacterItem from './character-item';
+// import ComicItem from './comic-item';
 
 export default {
   data() {
       return {
-        type: 'SERIES_INFO@LOAD_COMPLETE',
-        data: {
-          this.$select('seriesInfo'),
-          this.$select('characters'),
-          this.$select('comics'),
-          this.$select('modal'),
-      },
+        seriesInfo: this.$select('seriesInfo'),
+        characters: this.$select('characters'),
+        comics: this.$select('comics'),
+        modal: this.$select('modal'),
       };
-    };
   },
 
-  mounted() {
-    store.dispatch(seriesInfoSearch)
-  }
+  created() {
+    store.dispatch(seriesInfoSearch('Thor'));
+  },
 
   methods: {
-      loadSeries() {
-        store.dispatch({ type: 'SERIES_INFO@LOAD_COMPLETE', this.search })
-        //or use the actionCreator
-        //store.dispatch(todoActions.loadSeries(this.search))
-        //const {loadSeries} = store.actions
-        //store.dispatch(loadSeries(this.search))
-      }
   },
 };
+
 </script>

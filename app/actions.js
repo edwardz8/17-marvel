@@ -20,15 +20,14 @@ export function clearModal() {
 }
 
 export function seriesInfoSearch(name) {
-  return (next) => {
+  return (dispatch) => {
     fetch(`http://marvel-is-broke.herokuapp.com/series?limit=1&titleStartsWith=${name}`)
     .then(response => response.json())
     .then((data) => {
       const series = data.data.results[0];
-      next(loadSeries(series));
-
-      next(findCharacters(series.id));
-      next(findComics(series.id));
+      dispatch(loadSeries(series));
+      dispatch(findCharacters(series.id));
+      dispatch(findComics(series.id));
     });
   };
 }
