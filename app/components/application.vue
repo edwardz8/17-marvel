@@ -22,7 +22,7 @@
             <hr/>
           </div>
           <ul class="creators__list">
-            <li v-for="item in seriesInfo.creators.items" class="creators__list-one">{{item}}</li>
+            <li v-for="item in seriesInfo.creators.items" class="creators__list-one">{{item.name}}</li>
           </ul>
         </div>
 
