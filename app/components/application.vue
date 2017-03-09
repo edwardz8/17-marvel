@@ -8,9 +8,9 @@
         </nav>
       </div>
     </div>
-
+      <div class="container">
       <div class="grid">
-        <div class="grid-item" v-if="seriesInfo">
+        <div class="grid-item series" v-if="seriesInfo">
           <img :src="`${seriesInfo.thumbnail.path}.${seriesInfo.thumbnail.extension}`" alt="">
           <p class="series__name">{{seriesInfo.title}}</p>
           <p class="series__date">{{seriesInfo.startYear}} - {{seriesInfo.endYear}}</p>
@@ -28,64 +28,22 @@
 
 
         <div class="grid-item main">
-
             <h2 class="characters__heading">CHARACTERS</h2>
-
+            <hr/>
               <div class="characters-row">
-
-                <div class="characters-data">
-                  <img src="http://placehold.it/150x150" class="characters-data__pic" alt="">
-                  <p class="name">Wolverine{{characters.name}}</p>
-                </div>
-
-                <div class="characters-data">
-                  <img src="http://placehold.it/150x150" class="characters-data__pic" alt="">
-                  <p class="name">Wolverine{{characters.name}}</p>
-                </div>
-
-                <div class="characters-data">
-                  <img src="http://placehold.it/150x150" class="characters-data__pic" alt="">
-                  <p class="name">Wolverine{{characters.name}}</p>
-                </div>
-
-                <div class="characters-data">
-                  <img src="http://placehold.it/150x150" class="characters-data__pic" alt="">
-                  <p class="name">Wolverine{{characters.name}}</p>
-                </div>
-              </div>
-
+                    <character-item v-for="item in characters" v-bind:characters="item" class="characters-data">
+                    </character-item>
+                  </div>
 
                 <h2 class="comics__heading">COMICS</h2>
 
+                <hr/>
                 <div class="comics-row">
-                    <div class="comics-data">
-                      <img src="http://placehold.it/150x150" class="comics-data__pic" alt="">
-                      <div class="number">#8</div>
-                      <p class="name">Glob</p>
-                      <button class="btn">Read More</button>
-                    </div>
+                  <comic-item v-for="item in comics" v-bind:comics="item" class="comics-data">
+                  </comic-item>
+                  <button class="btn">Read More</button>
+                </div>
 
-                    <div class="comics-data">
-                      <img src="http://placehold.it/150x150" class="comics-data__pic" alt="">
-                      <div class="number">#8</div>
-                      <p class="name">Glob</p>
-                      <button class="btn">Read More</button>
-                    </div>
-
-                    <div class="comics-data">
-                      <img src="http://placehold.it/150x150" class="comics-data__pic" alt="">
-                      <div class="number">#8</div>
-                      <p class="name">Glob</p>
-                      <button class="btn">Read More</button>
-                    </div>
-
-                    <div class="comics-data">
-                      <img src="http://placehold.it/150x150" class="comics-data__pic" alt="">
-                      <div class="number">#8</div>
-                      <p class="name">Glob</p>
-                      <button class="btn">Read More</button>
-                    </div>
-                  </div>
 
 
   </div>
@@ -96,10 +54,16 @@
 <script>
 import store from '../store';
 import { seriesInfoSearch } from '../actions';
-// import CharacterItem from './character-item';
-// import ComicItem from './comic-item';
+import CharacterItem from './character-item.vue';
+import ComicItem from './comic-item.vue';
 
 export default {
+    components: {
+      CharacterItem,
+      ComicItem
+    },
+
+
   data() {
       return {
         seriesInfo: this.$select('seriesInfo'),
@@ -114,6 +78,7 @@ export default {
   },
 
   methods: {
+
   },
 };
 

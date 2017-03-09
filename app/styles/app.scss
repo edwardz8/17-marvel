@@ -28,7 +28,7 @@ $c-color: #002e42;
 }
 
 .characters {
-  &__heading {border-bottom: .1rem $c-color solid;}
+  //&__heading {border-bottom: .1rem $c-color solid;}
 }
 
 .grid {
@@ -40,44 +40,50 @@ $c-color: #002e42;
 }
 
 .series {
-  flex-basis: calc(25%);
+  flex-basis: calc(30%);
+  min-width: 10rem;
 }
 
 .main {
-  flex-basis: calc(75%);
+  flex-basis: calc(70%);
   flex-grow: 1;
 }
 
 .characters-row {
   display: flex;
-  margin: 1rem;
+  margin: .5rem;
   justify-content: space-around;
 }
 
 .characters-data {
-  margin: .5rem;
+  margin: 0;
+  flex-basis: calc(100% / 4);
 }
 
 .characters-data__pic {
   border-radius: .2rem;
+  max-width: 10rem;
 }
 
 .comics-heading {
-  border-bottom: .1rem $c-color solid;
+  //border-bottom: .1rem $c-color solid;
 }
 
 .comics-row {
   display: flex;
   margin: 1rem;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .comics-data {
   margin: .5rem;
+  flex-basis: calc(100% / 4 - 2rem - 2rem);
 }
 
 .comics-data__pic {
   border-radius: .2rem;
+  max-width: 10rem;
 }
 
 .number {
