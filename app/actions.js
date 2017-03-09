@@ -3,67 +3,54 @@ export function loadSeries(data) {
   return { type: 'SERIES_INFO@LOAD_COMPLETE', data };
 }
 
-export function findCharacters(characters) {
-  characters.id = new Date();
-
-  return { type: 'CHARACTERS@FIND_ALL_COMPLETE', data: { name: [] } };
+export function findCharacters(data) {
+  return { type: 'CHARACTERS@FIND_ALL_COMPLETE', data };
 }
 
-export function findComics(comics) {
-  comics.id = new Date();
-
-  return { type: 'COMICS@FIND_ALL_COMPLETE', data: { name: [] } };
+export function findComics(data) {
+  return { type: 'COMICS@FIND_ALL_COMPLETE', data };
 }
 
-export function setModal(id) {
-  return { type: 'MODAL@SET', data: id };
+export function setModal(data) {
+  return { type: 'MODAL@SET', data };
 }
 
-export function clearModal(id) {
-  return { type: 'MODAL@CLEAR', data: id };
+export function clearModal() {
+  return { type: 'MODAL@CLEAR' };
 }
 
-export function seriesInfoSearch(seriesInfo) {
-  return (dispatch) => {
-    fetch('http://marvel-is-broke.herokuapp.com/series?limit=1&titleStartsWith=TITLE&')
-    .then(r = r.json())
+export function seriesInfoSearch(name) {
+  return (next) => {
+    fetch(`http://marvel-is-broke.herokuapp.com/series?limit=1&titleStartsWith=${name}`)
+    .then(response => response.json())
     .then((data) => {
-      dispatch({
-        type: 'SERIES_INFO@LOAD_COMPLETE',
-        data: {
-          seriesInfo,
-        },
-      });
+      const series = data.data.results[0];
+      next(loadSeries(series));
+
+      next(findCharacters(series.id));
+      next(findComics(series.id));
     });
   };
 }
 
-export function charactersFindForId(characters) {
-  return (dispatch) => {
-    fetch('http://marvel-is-broke.herokuapp.com/series/ID/characters')
+export function charactersFindForId(id) {
+  return (next) => {
+    fetch(`http://marvel-is-broke.herokuapp.com/series/${id}/characters`)
     .then(r = r.json())
     .then((data) => {
-      dispatch({
-        type: 'CHARACTERS@FIND_ALL_COMPLETE',
-        data: {
-          characters,
-        },
-      });
+      const characters = data.data.results;
+      next(findCharacters(characters));
     });
   };
 }
 
-export function comicsFindForId(comics) {
-  return (dispatch) => {
-    fetch('http://marvel-is-broke.herokuapp.com/series/ID/comics')
+export function comicsFindForId(id) {
+  return (next) => {
+    fetch(`http://marvel-is-broke.herokuapp.com/series/${id}/comics`)
     .then(r = r.json())
     .then((data) => {
-      dispatch({
-        type: 'COMICS@FIND_ALL_COMPLETE',
-        data: {
-          comics,
-        },
-      });
+      const comics = data.data.results;
+      next(findComics(comics));
     });
   };
 }

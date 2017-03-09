@@ -12,9 +12,9 @@
       <div class="grid">
         <div class="grid-item sidebar">
           <img src="http://vignette4.wikia.nocookie.net/marveldatabase/images/f/ff/Mayham_(April_Parker).jpg/revision/latest?cb=20110320235541"
-          class="sidebar__pic" alt="">
-          <p class="sidebar__name">Spider-Girl (2010-2011){{sidebar.name}}</p>
-          <p class="sidebar__date">2010-2011{{sidebar.date}}</p>
+          class="series__pic" alt="">
+          <p class="series__name">Spider-Girl (2010-2011){{series.name}}</p>
+          <p class="series__date">2010-2011{{series.date}}</p>
 
 
           <div class="creators">
@@ -67,28 +67,28 @@
                     <div class="comics-data">
                       <img src="http://placehold.it/150x150" class="comics-data__pic" alt="">
                       <div class="number">#8</div>
-                      <p class="name">Batman</p>
+                      <p class="name">Glob</p>
                       <button class="btn">Read More</button>
                     </div>
 
                     <div class="comics-data">
                       <img src="http://placehold.it/150x150" class="comics-data__pic" alt="">
                       <div class="number">#8</div>
-                      <p class="name">Batman</p>
+                      <p class="name">Glob</p>
                       <button class="btn">Read More</button>
                     </div>
 
                     <div class="comics-data">
                       <img src="http://placehold.it/150x150" class="comics-data__pic" alt="">
                       <div class="number">#8</div>
-                      <p class="name">Batman</p>
+                      <p class="name">Glob</p>
                       <button class="btn">Read More</button>
                     </div>
 
                     <div class="comics-data">
                       <img src="http://placehold.it/150x150" class="comics-data__pic" alt="">
                       <div class="number">#8</div>
-                      <p class="name">Batman</p>
+                      <p class="name">Glob</p>
                       <button class="btn">Read More</button>
                     </div>
                   </div>
@@ -113,13 +113,17 @@ export default {
     };
   },
 
+  mounted() {
+    store.dispatch(seriesInfoSearch)
+  }
+
   methods: {
       loadSeries() {
-        store.dispatch({type: 'SERIES_INFO@LOAD_COMPLETE', /*this.search */})
+        store.dispatch({ type: 'SERIES_INFO@LOAD_COMPLETE', this.search })
         //or use the actionCreator
-        store.dispatch(todoActions.loadSeries(this.search))
-        const {loadSeries} = store.actions
-        store.dispatch(loadSeries(this.search))
+        //store.dispatch(todoActions.loadSeries(this.search))
+        //const {loadSeries} = store.actions
+        //store.dispatch(loadSeries(this.search))
       }
   },
 };

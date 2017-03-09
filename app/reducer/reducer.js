@@ -6,7 +6,7 @@ import modal from './modal';
 
 export default combineReducers({
   seriesData,
-  comics,
   characters,
+  comics,
   modal
 });
