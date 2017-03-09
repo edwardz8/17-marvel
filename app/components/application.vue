@@ -10,7 +10,7 @@
     </div>
 
       <div class="grid">
-        <div class="grid-item sidebar">
+        <div class="grid-item" v-if="series">
           <img src="http://vignette4.wikia.nocookie.net/marveldatabase/images/f/ff/Mayham_(April_Parker).jpg/revision/latest?cb=20110320235541"
           class="series__pic" alt="">
           <p class="series__name">Spider-Girl (2010-2011){{series.name}}</p>
@@ -95,6 +95,7 @@
 
 
   </div>
+</div>
 </template>
 
 <script>
@@ -108,6 +109,7 @@ export default {
           this.$select('seriesInfo'),
           this.$select('characters'),
           this.$select('comics'),
+          this.$select('modal'),
       },
       };
     };
