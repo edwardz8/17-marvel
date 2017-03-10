@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="">
       <img :src="`${comics.thumbnail.path}.${comics.thumbnail.extension}`" class="comics-data__pic" alt="">
-      <div class="number">{{comics.number}}</div>
+      <div class="number">{{comics.issueNumber}}</div>
       <p class="name">{{comics.name}}</p>
-      <button class="btn">Read More</button>
+      <button class="btn" @click="$emit('readmore', comics)">Read More</button>
 
   </div>
 </template>

@@ -16,7 +16,7 @@ export function setModal(data) {
 }
 
 export function clearModal() {
-  return { type: 'MODAL@CLEAR' };
+  return { type: 'MODAL@CLEAR', };
 }
 
 export function seriesInfoSearch(name) {

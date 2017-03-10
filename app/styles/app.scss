@@ -108,3 +108,18 @@ $c-color: #002e42;
     background: #c63c3c;
   }
 }
+
+.modal {
+    background: $c-color;
+    color: white;
+    WIDTH: 20rem;
+    HEIGHT: 10rem;
+    POSITION: RELATIVE;
+    z-index: 100000000;
+    margin: 0;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.modal__card {
+}

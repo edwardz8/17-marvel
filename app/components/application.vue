@@ -39,21 +39,29 @@
 
                 <hr/>
                 <div class="comics-row">
-                  <comic-item v-for="item in comics" v-bind:comics="item" class="comics-data">
+                  <comic-item v-for="item in comics" v-bind:comics="item" v-on:readmore="showModal"
+                  class="comics-data">
                   </comic-item>
-                  <button class="btn">Read More</button>
                 </div>
 
-
+                <div class="modal" v-if="modal">
+                  <div class="modal__card">
+                    <button v-on:click="closeModal">X</button>
+                    <p v-html="modal.description"></p>
+                  </div>
+                </div>
 
   </div>
+</div>
+
+
 </div>
 </div>
 </template>
 
 <script>
 import store from '../store';
-import { seriesInfoSearch } from '../actions';
+import { seriesInfoSearch, setModal, clearModal } from '../actions';
 import CharacterItem from './character-item.vue';
 import ComicItem from './comic-item.vue';
 
@@ -78,6 +86,13 @@ export default {
   },
 
   methods: {
+      showModal(data) {
+          store.dispatch(setModal(data));
+      },
+
+      closeModal() {
+        store.dispatch(clearModal());
+      },
 
   },
 };
