@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+}
+
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.section {
+  padding: 1rem;
+}
+
+.header {
+  background: $c-color;
+}
+
+.container {
+  width: 100%;
+  max-width: 65rem;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+  align-self: center;
+}
